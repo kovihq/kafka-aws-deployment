@@ -7,7 +7,14 @@ resource "aws_route_table" "kad-public-route-table" {
   }
 
   tags = {
-    Name = "kad-public-route-table"
+    Name        = "kad-public-route-table"
+    Application = "Kafka"
+    Service     = "tracking"
+    Environment = "Prod"
+    Domain      = "FleetTracking"
+    Squad       = "FleetTracking"
+    Tribe       = "Fleet"
+    Product     = "FleetTracking"
   }
 }
 

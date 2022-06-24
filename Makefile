@@ -1,5 +1,5 @@
-deploykad:  deployvpc deploymsk  deployecs  deployrds
-destroykad: destroyrds destroyecs destroymsk destroyvpc
+deploykad:  deployvpc deploymsk  deployecs
+destroykad: destroyecs destroymsk destroyvpc
 
 deployvpc:
 	@echo Initializing VPC
@@ -39,16 +39,3 @@ destroyecs:
 	(cd aws-infrastructure/deployment/kad-ecs; terraform init -backend-config="../../configuration/terraform-backend.tfvars")
 	(cd aws-infrastructure/deployment/kad-ecs; terraform destroy -auto-approve -var-file="../../configuration/global-config.tfvars" -var-file="../../configuration/ecs-config.tfvars")
 	rm -rf aws-infrastructure/deployment/kad-ecs/.terraform
-
-deployrds:
-	@echo Initializing RDS
-	rm -rf aws-infrastructure/deployment/kad-rds/.terraform
-	(cd aws-infrastructure/deployment/kad-rds; terraform init -backend-config="../../configuration/terraform-backend.tfvars")
-	(cd aws-infrastructure/deployment/kad-rds; terraform apply -auto-approve -var-file="../../configuration/global-config.tfvars" -var-file="../../configuration/rds-config.tfvars")
-	rm -rf aws-infrastructure/deployment/kad-rds/.terraform
-
-destroyrds:
-	@echo Destroying RDS
-	(cd aws-infrastructure/deployment/kad-rds; terraform init -backend-config="../../configuration/terraform-backend.tfvars")
-	(cd aws-infrastructure/deployment/kad-rds; terraform destroy -auto-approve -var-file="../../configuration/global-config.tfvars" -var-file="../../configuration/rds-config.tfvars")
-	rm -rf aws-infrastructure/deployment/kad-rds/.terraform

@@ -3,6 +3,13 @@ resource "aws_vpc" "kad-vpc" {
   enable_dns_support   = "true"
   enable_dns_hostnames = "true"
   tags = {
-    Name = "kad-vpc"
+    Name        = "kad-vpc"
+    Application = "Kafka"
+    Service     = "tracking"
+    Environment = "Prod"
+    Domain      = "FleetTracking"
+    Squad       = "FleetTracking"
+    Tribe       = "Fleet"
+    Product     = "FleetTracking"
   }
 }

@@ -39,7 +39,15 @@ resource "aws_msk_cluster" "kad-msk" {
   enhanced_monitoring    = "DEFAULT"
   kafka_version          = var.msk_kafka_version
   number_of_broker_nodes = var.msk_number_of_brokers
-  tags                   = {}
+  tags = {
+    Application = "Kafka"
+    Service     = "tracking"
+    Environment = "Prod"
+    Domain      = "FleetTracking"
+    Squad       = "FleetTracking"
+    Tribe       = "Fleet"
+    Product     = "FleetTracking"
+  }
 
   broker_node_group_info {
     az_distribution = "DEFAULT"

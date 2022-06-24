@@ -1,6 +1,6 @@
 # NEED CONFIGURATION:
 
-ecs_key_name = "<SET EC2 KEY NAME HERE>" # e.g: my_ec2_key
+ecs_key_name = "kafka-aws-deployment" # e.g: my_ec2_key
 
 /*
     I recommend using an Amazon ECS-optimized AMI. (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html)
@@ -9,7 +9,7 @@ ecs_key_name = "<SET EC2 KEY NAME HERE>" # e.g: my_ec2_key
     AMI Name: amzn-ami-2018.03.w-amazon-ecs-optimized
     AMI Id: ami-0112bb4988eedc594
 */
-ecs_image_id = "<SET AMI HERE>"          # e.g: ami-0112bb4988eedc594
+ecs_image_id = "ami-0f863d7367abe5d6f" # e.g: ami-0112bb4988eedc594
 
 
 #ECS

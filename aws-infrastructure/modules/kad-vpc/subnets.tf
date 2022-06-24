@@ -18,7 +18,14 @@ resource "aws_subnet" "kad-public-subnet-b" {
   map_public_ip_on_launch = "true"
 
   tags = {
-    Name = "kad-public-subnet-b"
+    Name        = "kad-public-subnet-b"
+    Application = "Kafka"
+    Service     = "tracking"
+    Environment = "Prod"
+    Domain      = "FleetTracking"
+    Squad       = "FleetTracking"
+    Tribe       = "Fleet"
+    Product     = "FleetTracking"
   }
 }
 
@@ -29,6 +36,13 @@ resource "aws_subnet" "kad-public-subnet-c" {
   map_public_ip_on_launch = "true"
 
   tags = {
-    Name = "kad-public-subnet-c"
+    Name        = "kad-public-subnet-c"
+    Application = "Kafka"
+    Service     = "tracking"
+    Environment = "Prod"
+    Domain      = "FleetTracking"
+    Squad       = "FleetTracking"
+    Tribe       = "Fleet"
+    Product     = "FleetTracking"
   }
 }

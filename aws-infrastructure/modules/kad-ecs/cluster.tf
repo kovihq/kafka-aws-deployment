@@ -96,20 +96,21 @@ module "kad-ecs-asg" {
   instance_type = var.ecs_instance_type
   key_name      = var.ecs_key_name
 
-  # Launch configuration
-  lc_name                     = "kad-ecs-launch-configuration"
-  create_lc                   = true
-  associate_public_ip_address = false
-  iam_instance_profile        = aws_iam_instance_profile.kad-ecs-instance.id
+  # Launch template
+  create                      = true
+  create_launch_template      = true
+  launch_template_name        = "kad-ecs-launch"
+  iam_instance_profile_arn    = aws_iam_instance_profile.kad-ecs-instance.arn
+  create_iam_instance_profile = false
   vpc_zone_identifier         = var.subnet_ids
-  user_data                   = data.template_file.kad-ecs.rendered
+  user_data                   = base64encode(data.template_file.kad-ecs.rendered)
 
   security_groups = [
     aws_security_group.kad-ecs.id
   ]
 
   # Auto scaling group
-  asg_name                  = "kad-ecs-auto-scaling-group"
+  # asg_name                  = "kad-ecs-auto-scaling-group"
   health_check_type         = "EC2"
   min_size                  = var.ecs_min_size
   desired_capacity          = var.ecs_desired_capacity

@@ -13,7 +13,6 @@ What is included:
    - Kafka Rest Proxy API (by `Confluent` through https://hub.docker.com/r/confluentinc/cp-kafka-rest)
    - Kafka KSQL Server (by `Confluent` through https://hub.docker.com/r/confluentinc/cp-ksql-server)
 * VPC
-* RDS Database
 * Load Balancer
 
 ## Prerequisites
@@ -69,10 +68,6 @@ You need the following to deploy the project:
       make deployecs
       ```
 
-   * To deploy RDS
-      ```console
-      make deployrds
-      ```
    </p>
    </details>
 
@@ -100,12 +95,6 @@ You need the following to deploy the project:
       terraform apply -auto-approve -var-file="../../configuration/global-config.tfvars" -var-file="../../configuration/ecs-config.tfvars"
       ```
 
-   * To deploy RDS
-      ```console
-      cd aws-infrastructure/deployment/kad-rds
-      terraform init -backend-config="../../configuration/terraform-backend.tfvars"
-      terraform apply -auto-approve -var-file="../../configuration/global-config.tfvars" -var-file="../../configuration/rds-config.tfvars"
-      ```
    </p>
    </details>
 
@@ -119,11 +108,6 @@ You need the following to deploy the project:
       make destroykad
       ```
       `kad = kafka aws deployment`
-
-   * To destroy RDS
-      ```console
-      make destroyrds
-      ```
 
    * To destroy ECS
       ```console
@@ -145,13 +129,6 @@ You need the following to deploy the project:
 
    <details><summary>Manual Terraform</summary>
    <p>
-
-   * To destroy RDS
-      ```console
-      cd aws-infrastructure/deployment/kad-rds
-      terraform init -backend-config="../../configuration/terraform-backend.tfvars"
-      terraform destroy -auto-approve -var-file="../../configuration/global-config.tfvars" -var-file="../../configuration/rds-config.tfvars"
-      ```
 
    * To destroy ECS
       ```console
@@ -183,7 +160,6 @@ Important Notes:
    
    The architecture is designed for Kafka exploration and not a proper production deployment.
    
-   * The database is placed on a public subnet to allow interaction with RDS through external database clients such as DBeaver, pgAdmin.
    * An autoscaling group is in place to facilitate the addition of new containers without worrying about the underlying infrastructure. You can change min, max and desired number of instances on this file `aws-infrastructure\configuration\ecs-config.tfvars`
 
 ![ArchitectureImage](images/kad-architecture.png)
