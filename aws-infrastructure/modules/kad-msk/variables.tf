@@ -37,3 +37,7 @@ variable "msk_default_replication_factor" {
 variable "msk_configuration_name" {
   description = "MSK Configuration name. This needs to be set to a new value for new deployments as currently AWS doesn't allow destroying MSK configurations"
 }
+
+variable "tags" {
+  description = "Default tags"
+}

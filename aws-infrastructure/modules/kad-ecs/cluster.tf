@@ -5,6 +5,8 @@ resource "aws_ecs_cluster" "kad-ecs" {
   lifecycle {
     create_before_destroy = true
   }
+
+  tags = var.tags
 }
 
 # INSTANCE PROFILE 
@@ -25,6 +27,7 @@ resource "aws_iam_role" "kad-ecs-instance" {
   ]
 }
 EOF
+  tags               = var.tags
 }
 resource "aws_iam_role_policy" "kad-ecs-instance" {
   name   = "${var.ecs_cluster_name}-instance"
@@ -74,6 +77,7 @@ resource "aws_iam_instance_profile" "kad-ecs-instance" {
   name = "${var.ecs_cluster_name}-instance"
   path = "/"
   role = aws_iam_role.kad-ecs-instance.name
+  tags = var.tags
 }
 
 data "template_file" "kad-ecs" {
@@ -116,4 +120,6 @@ module "kad-ecs-asg" {
   desired_capacity          = var.ecs_desired_capacity
   max_size                  = var.ecs_max_size
   wait_for_capacity_timeout = 0
+
+  tags = var.tags
 }

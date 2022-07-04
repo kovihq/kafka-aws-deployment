@@ -15,3 +15,14 @@ aws_profile = "kovi-prod" # e.g: default
     p.s: don't forget the "/32" in the end. This sets the IP range to only this specific IP
 */
 machine_public_ip_address = "45.170.144.214/32" # e.g: 219.88.157.20/32
+
+
+tags = {
+  Application = "Kafka"
+  Service     = "tracking"
+  Environment = "Prod"
+  Domain      = "FleetTracking"
+  Squad       = "FleetTracking"
+  Tribe       = "Fleet"
+  Product     = "FleetTracking"
+}

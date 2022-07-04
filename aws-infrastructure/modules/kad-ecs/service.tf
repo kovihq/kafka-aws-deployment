@@ -1,10 +1,11 @@
 resource "aws_ecs_service" "kad-kafka-schema-registry" {
-  cluster                            = aws_ecs_cluster.kad-ecs.id
-  desired_count                      = 1
-  launch_type                        = "EC2"
-  name                               = "kad-kafka-schema-registry"
-  scheduling_strategy                = "REPLICA"
-  task_definition                    = aws_ecs_task_definition.kad-kafka-schema-registry.arn
+  cluster             = aws_ecs_cluster.kad-ecs.id
+  desired_count       = 1
+  launch_type         = "EC2"
+  name                = "kad-kafka-schema-registry"
+  scheduling_strategy = "REPLICA"
+  task_definition     = aws_ecs_task_definition.kad-kafka-schema-registry.arn
+  tags                = var.tags
 
   service_registries {
     registry_arn   = aws_service_discovery_service.kad-kafka-schema-registry.arn
@@ -19,12 +20,13 @@ resource "aws_ecs_service" "kad-kafka-schema-registry" {
 }
 
 resource "aws_ecs_service" "kad-kafka-connect" {
-  cluster                            = aws_ecs_cluster.kad-ecs.id
-  desired_count                      = 1
-  launch_type                        = "EC2"
-  name                               = "kad-kafka-connect"
-  scheduling_strategy                = "REPLICA"
-  task_definition                    = aws_ecs_task_definition.kad-kafka-connect.arn
+  cluster             = aws_ecs_cluster.kad-ecs.id
+  desired_count       = 1
+  launch_type         = "EC2"
+  name                = "kad-kafka-connect"
+  scheduling_strategy = "REPLICA"
+  task_definition     = aws_ecs_task_definition.kad-kafka-connect.arn
+  tags                = var.tags
 
   service_registries {
     registry_arn   = aws_service_discovery_service.kad-kafka-connect.arn
@@ -39,12 +41,13 @@ resource "aws_ecs_service" "kad-kafka-connect" {
 }
 
 resource "aws_ecs_service" "kad-ecs-kafka-schema-registry-ui" {
-  cluster                            = aws_ecs_cluster.kad-ecs.id
-  desired_count                      = 1
-  launch_type                        = "EC2"
-  name                               = "kad-ecs-kafka-schema-registry-ui"
-  scheduling_strategy                = "REPLICA"
-  task_definition                    = aws_ecs_task_definition.kad-ecs-kafka-schema-registry-ui.arn
+  cluster             = aws_ecs_cluster.kad-ecs.id
+  desired_count       = 1
+  launch_type         = "EC2"
+  name                = "kad-ecs-kafka-schema-registry-ui"
+  scheduling_strategy = "REPLICA"
+  task_definition     = aws_ecs_task_definition.kad-ecs-kafka-schema-registry-ui.arn
+  tags                = var.tags
 
   load_balancer {
     target_group_arn = aws_lb_target_group.kad-ecs-kafka-schema-registry-ui.arn
@@ -54,12 +57,13 @@ resource "aws_ecs_service" "kad-ecs-kafka-schema-registry-ui" {
 }
 
 resource "aws_ecs_service" "kad-ecs-kafka-connect-ui" {
-  cluster                            = aws_ecs_cluster.kad-ecs.id
-  desired_count                      = 1
-  launch_type                        = "EC2"
-  name                               = "kad-ecs-kafka-connect-ui"
-  scheduling_strategy                = "REPLICA"
-  task_definition                    = aws_ecs_task_definition.kad-ecs-kafka-connect-ui.arn
+  cluster             = aws_ecs_cluster.kad-ecs.id
+  desired_count       = 1
+  launch_type         = "EC2"
+  name                = "kad-ecs-kafka-connect-ui"
+  scheduling_strategy = "REPLICA"
+  task_definition     = aws_ecs_task_definition.kad-ecs-kafka-connect-ui.arn
+  tags                = var.tags
 
   load_balancer {
     target_group_arn = aws_lb_target_group.kad-ecs-kafka-connect-ui.arn
@@ -69,12 +73,13 @@ resource "aws_ecs_service" "kad-ecs-kafka-connect-ui" {
 }
 
 resource "aws_ecs_service" "kad-ecs-kafka-rest-api" {
-  cluster                            = aws_ecs_cluster.kad-ecs.id
-  desired_count                      = 1
-  launch_type                        = "EC2"
-  name                               = "kad-ecs-kafka-rest-api"
-  scheduling_strategy                = "REPLICA"
-  task_definition                    = aws_ecs_task_definition.kad-ecs-kafka-rest-api.arn
+  cluster             = aws_ecs_cluster.kad-ecs.id
+  desired_count       = 1
+  launch_type         = "EC2"
+  name                = "kad-ecs-kafka-rest-api"
+  scheduling_strategy = "REPLICA"
+  task_definition     = aws_ecs_task_definition.kad-ecs-kafka-rest-api.arn
+  tags                = var.tags
 
   load_balancer {
     target_group_arn = aws_lb_target_group.kad-ecs-kafka-rest-api.arn
@@ -84,12 +89,13 @@ resource "aws_ecs_service" "kad-ecs-kafka-rest-api" {
 }
 
 resource "aws_ecs_service" "kad-kafka-ksql" {
-  cluster                            = aws_ecs_cluster.kad-ecs.id
-  desired_count                      = 1
-  launch_type                        = "EC2"
-  name                               = "kad-kafka-ksql"
-  scheduling_strategy                = "REPLICA"
-  task_definition                    = aws_ecs_task_definition.kad-kafka-ksql.arn
+  cluster             = aws_ecs_cluster.kad-ecs.id
+  desired_count       = 1
+  launch_type         = "EC2"
+  name                = "kad-kafka-ksql"
+  scheduling_strategy = "REPLICA"
+  task_definition     = aws_ecs_task_definition.kad-kafka-ksql.arn
+  tags                = var.tags
 
   service_registries {
     registry_arn   = aws_service_discovery_service.kad-kafka-ksql.arn

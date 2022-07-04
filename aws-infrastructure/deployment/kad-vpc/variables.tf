@@ -14,3 +14,7 @@ variable "aws_profile" {
 variable "machine_public_ip_address" {
   description = "Your machine public IP address to access resources outside AWS"
 }
+
+variable "tags" {
+  description = "Default tags"
+}

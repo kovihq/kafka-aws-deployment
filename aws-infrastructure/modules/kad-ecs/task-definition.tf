@@ -2,15 +2,7 @@ resource "aws_ecs_task_definition" "kad-kafka-schema-registry" {
   family                   = "kad-kafka-schema-registry"
   network_mode             = "awsvpc"
   requires_compatibilities = []
-  tags = {
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags                     = var.tags
   container_definitions = jsonencode(
     [
       {
@@ -51,15 +43,7 @@ resource "aws_ecs_task_definition" "kad-kafka-connect" {
   family                   = "kad-kafka-connect"
   network_mode             = "awsvpc"
   requires_compatibilities = []
-  tags = {
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags                     = var.tags
   container_definitions = jsonencode(
     [
       {
@@ -132,15 +116,7 @@ resource "aws_ecs_task_definition" "kad-ecs-kafka-schema-registry-ui" {
   family                   = "kad-ecs-kafka-schema-registry-ui"
   network_mode             = "bridge"
   requires_compatibilities = []
-  tags = {
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags                     = var.tags
   container_definitions = jsonencode(
     [
       {
@@ -177,15 +153,7 @@ resource "aws_ecs_task_definition" "kad-ecs-kafka-connect-ui" {
   family                   = "kad-ecs-kafka-connect-ui"
   network_mode             = "bridge"
   requires_compatibilities = []
-  tags = {
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags                     = var.tags
   container_definitions = jsonencode(
     [
       {
@@ -223,15 +191,7 @@ resource "aws_ecs_task_definition" "kad-ecs-kafka-rest-api" {
   family                   = "kad-ecs-kafka-rest-api"
   network_mode             = "bridge"
   requires_compatibilities = []
-  tags = {
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags                     = var.tags
   container_definitions = jsonencode(
     [
       {
@@ -276,15 +236,7 @@ resource "aws_ecs_task_definition" "kad-kafka-ksql" {
   family                   = "kad-kafka-ksql"
   network_mode             = "awsvpc"
   requires_compatibilities = []
-  tags = {
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags                     = var.tags
   container_definitions = jsonencode(
     [
       {

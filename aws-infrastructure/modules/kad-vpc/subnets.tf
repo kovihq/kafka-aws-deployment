@@ -6,9 +6,7 @@ resource "aws_subnet" "kad-public-subnet-a" {
   cidr_block              = cidrsubnet(aws_vpc.kad-vpc.cidr_block, 4, 0)
   map_public_ip_on_launch = "true"
 
-  tags = {
-    Name = "kad-public-subnet-a"
-  }
+  tags = merge({ Name = "kad-public-subnet-a" }, var.tags)
 }
 
 resource "aws_subnet" "kad-public-subnet-b" {
@@ -17,16 +15,7 @@ resource "aws_subnet" "kad-public-subnet-b" {
   cidr_block              = cidrsubnet(aws_vpc.kad-vpc.cidr_block, 4, 1)
   map_public_ip_on_launch = "true"
 
-  tags = {
-    Name        = "kad-public-subnet-b"
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags = merge({ Name = "kad-public-subnet-b" }, var.tags)
 }
 
 resource "aws_subnet" "kad-public-subnet-c" {
@@ -35,14 +24,5 @@ resource "aws_subnet" "kad-public-subnet-c" {
   cidr_block              = cidrsubnet(aws_vpc.kad-vpc.cidr_block, 4, 2)
   map_public_ip_on_launch = "true"
 
-  tags = {
-    Name        = "kad-public-subnet-c"
-    Application = "Kafka"
-    Service     = "tracking"
-    Environment = "Prod"
-    Domain      = "FleetTracking"
-    Squad       = "FleetTracking"
-    Tribe       = "Fleet"
-    Product     = "FleetTracking"
-  }
+  tags = merge({ Name = "kad-public-subnet-c" }, var.tags)
 }

@@ -124,3 +124,7 @@ variable "image_kafka_rest_api" {
 variable "image_kafka_ksql" {
   description = "Docker image for Kafka Ksql"
 }
+
+variable "tags" {
+  description = "Default tags"
+}
