@@ -18,12 +18,12 @@ ecs_instance_type              = "t2.xlarge"
 ecs_desired_capacity           = 2
 ecs_min_size                   = 1
 ecs_max_size                   = 2
-image_kafka_schema_registry    = "confluentinc/cp-schema-registry:5.3.0"
-image_kafka_schema_registry_ui = "landoop/schema-registry-ui:0.9.4"
-image_kafka_connect            = "debezium/connect:0.9"
+image_kafka_schema_registry    = "confluentinc/cp-schema-registry"
+image_kafka_schema_registry_ui = "landoop/schema-registry-ui"
+image_kafka_connect            = "debezium/connect"
 image_kafka_connect_ui         = "landoop/kafka-connect-ui"
-image_kafka_rest_api           = "confluentinc/cp-kafka-rest:latest"
-image_kafka_ksql               = "confluentinc/cp-ksql-server:5.3.1"
+image_kafka_rest_api           = "confluentinc/cp-kafka-rest"
+image_kafka_ksql               = "confluentinc/ksqldb-server"
 
 ecs_container_kafka_schema_registry_port = 8081
 ecs_host_kafka_schema_registry_port      = 8081

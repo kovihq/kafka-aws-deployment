@@ -7,7 +7,7 @@ msk_configuration_name = "kad-msk-24062022" # e.g: kad-msk-05122019
 msk_instance_type              = "kafka.m5.large"
 msk_kafka_version              = "2.2.1"
 msk_number_of_brokers          = "2"
-msk_ebs_volume_size            = "10"
+msk_ebs_volume_size            = "100"
 msk_encryption_data_in_transit = "TLS_PLAINTEXT"
 
 /*

@@ -1,9 +1,21 @@
+data "aws_vpc_peering_connection" "pcx_prod" {
+  filter {
+    name   = "tag:Name"
+    values = ["iot-to-kafka"]
+  }
+}
+
 resource "aws_route_table" "kad-public-route-table" {
   vpc_id = aws_vpc.kad-vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.kad-internet-gateway.id
+  }
+
+  route {
+    cidr_block                = data.aws_vpc_peering_connection.pcx_prod.cidr_block
+    vpc_peering_connection_id = data.aws_vpc_peering_connection.pcx_prod.id
   }
 
   tags = merge({ Name = "kad-public-route-table" }, var.tags)
