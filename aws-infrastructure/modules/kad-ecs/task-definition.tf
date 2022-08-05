@@ -247,7 +247,7 @@ resource "aws_ecs_task_definition" "kad-kafka-ksql" {
         essential   = true
         mountPoints = []
         volumesFrom = []
-        memoryReservation : 1024
+        memoryReservation : 2048
         portMappings : [
           {
             containerPort = var.ecs_container_kafka_ksql_port,
@@ -266,7 +266,7 @@ resource "aws_ecs_task_definition" "kad-kafka-ksql" {
           },
           {
             name  = "KSQL_KSQL_SERVICE_ID"
-            value = "ksql-server_"
+            value = "ksqldb-server-new3_"
           },
           {
             name  = "KSQL_KSQL_SCHEMA_REGISTRY_URL"
